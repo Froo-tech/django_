@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'users/css/index.css' %}" type="text/css">
+</head>
+<body>
+    <div class="main">
+        <div class="fil"></div>
+        <div class="con">
+            <div class="messages">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-con">
+                    {{  error  }}
+                    <label for="username">Введите имя пользователя</label>
+                    <input class="username" type="text" name="username" required>
+                    <label for="email">Почта</label>
+                    <input class="email" type="email" name="email" required>
+                    <label for="tel">Телефон</label>
+                    <input class="tel" type="tel" name="tel" required>
+                    <label for="password">Пароль</label>
+                    <input class="password" type="password" name="password" required>
+                    <label for="password_">Подтверждение пароля</label>
+                    <input class="password_" type="password" name="password_" required>
+                    <div class="but">
+
+                        <button class="reg" type="submit">Зарегистрироваться</button>
+                    </div>
+                </div>
+            </form>
+            <div>
+                <a href="login">Войти</a>
+            </div>
+            <div class="fil"></div>
+        </div>
+    </div>
+</body>
+</html>
