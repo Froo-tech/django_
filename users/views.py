@@ -37,10 +37,10 @@ def register(request):
             return render(request, 'users/register.html',{"error" : "Пожалуйста введите одинаковый пароль"})
 
         if User.objects.filter(username=username).exists():
-            return render(request, 'users/register.html')
+            return render(request, 'users/register.html', {"error" : "Пользователь с таким username уже сушествует "})
 
         if User.objects.filter(email=email).exists():
-            return render(request, 'users/register.html')
+            return render(request, 'users/register.html', {"error" : "Пользователь с таким email уже сушествует"})
 
 
         try:

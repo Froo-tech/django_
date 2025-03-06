@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Register</title>
     <link rel="stylesheet" href="{% static 'users/css/index.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div class="main">
@@ -22,7 +23,12 @@
             <form method="post">
                 {% csrf_token %}
                 <div class="form-con">
-                    {{  error  }}
+                    {% if error %}
+                    <div class="error-con" role="alert" aria-live="assertive">
+                        <i class="fas fa-exclamation-circle"></i>{{ error }}
+                    </div>
+                {% endif %}
+
                     <label for="username">Введите имя пользователя</label>
                     <input class="username" type="text" name="username" required>
                     <label for="email">Почта</label>
@@ -39,8 +45,8 @@
                     </div>
                 </div>
             </form>
-            <div>
-                <a href="login">Войти</a>
+            <div class="log">
+                <a href="/users/login">Войти</a>
             </div>
             <div class="fil"></div>
         </div>
