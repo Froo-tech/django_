@@ -1,10 +1,27 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Account</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'users/css/account.css' %}?v=1.1" type="text/css">
 </head>
 <body>
-<a href="logout/">Выйти </a>
+    <div class="con-is_true">
+        {% if email %}
+            <div class="return_data">
+            <p>Username: {{ username }}</p>
+            <p>Email: {{ email }}</p>
+            </div>
+            <a href="logout/">Выйти</a>
+        {% endif %}
+    </div>
+    {% if anom %}
+    <div class="error-con" role="alert" aria-live="assertive">
+        <i class="fas fa-exclamation-circle"></i> {{ anom }}
+    </div>
+    <a href="/users/login">Войти</a>
+    {% endif %}
 </body>
 </html>

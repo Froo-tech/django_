@@ -1,4 +1,5 @@
 from django import forms
+from django.db import models
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -9,8 +10,10 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ("username", "email", "tel", "password1", "password2")
-from django.db import models
-from django.contrib.auth.models import User
+
+
+class Images(models.Model):
+    img = models.ImageField(upload_to='article', height_field=100, width_field=100)
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

@@ -1,5 +1,5 @@
 body {
-    background-color: #0080ff;
+    background-color: #2A2E32;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -7,9 +7,9 @@ body {
 }
 
 label {
-    color: #949494;
+    color: #C9C9C9;
     display: block;
-    margin-top: 20vh;
+    margin-top: 10vh;
     text-align: center;
 }
 
@@ -65,10 +65,14 @@ input:focus {
     to { opacity: 1; }
 }
 
-.btn {
+button {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     background-color: #0073ee;
     color: #ffffff;
     display: block;
+    text-align: center;
     margin: 20px auto 0;
     padding: 10px 20px;
     border: none;
@@ -78,8 +82,24 @@ input:focus {
     transition: background-color 0.3s ease;
 }
 
-.btn:hover {
+button:hover {
     background-color: #0056b3;
+}
+
+button:focus {
+    outline: 2px solid #0056b3;
+    outline-offset: 2px;
+}
+
+button:active {
+    background-color: #004080;
+}
+
+@media (max-width: 600px) {
+    button {
+        padding: 15px 30px;
+        font-size: 18px;
+    }
 }
 
 

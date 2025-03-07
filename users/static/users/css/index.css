@@ -7,11 +7,21 @@ label {
     display: block;
     text-align: center;
 }
+a {
+    display: block;
+    margin-top: 3vh;
+    text-decoration: none;
+    color: #818181;
+    text-align: center;
+}
+
 button.reg{
 
     background-color: #2A2E32;
+
     color: #C9C9C9;
     display: block;
+    text-align: center;
     margin: 0 auto;
 }
 input {
@@ -39,6 +49,7 @@ input {
 }
 .but{
     margin-top: 40px;
+    
 }
 .error-con {
     margin-bottom: 2vh;

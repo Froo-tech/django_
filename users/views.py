@@ -19,8 +19,16 @@ def user_login(request):
 
 
 def account(request):
+    contex = {}
+    if request.user.is_authenticated:
+        username = request.user.username
 
-    return render(request, 'users/account.html')
+        email = request.user.email
+        contex = {"username":username,
+                  "email":email}
+    else:
+        contex = {'anom':"User is not authenticated"}
+    return render(request, 'users/account.html', contex)
 
 
 def register(request):
@@ -46,7 +54,7 @@ def register(request):
         try:
             user = User.objects.create_user(username=username, email=email, password=password)
             login(request, user)
-            return redirect('account/')
+            return redirect('/users/account/')
 
 
         except Exception as e:
@@ -57,3 +65,5 @@ def register(request):
 def logout(request):
     auth_logout(request)
     return redirect('/users/register/')
+def main(request):
+    return render(request, 'users/main-page.html')
