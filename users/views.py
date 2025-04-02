@@ -12,7 +12,7 @@ def user_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect("account/")
+            return redirect("/users/account/")
         else:
             return render(request, "users/login.html", {"error": "Неправильный логин или пароль"})
     return render(request, "users/login.html")
